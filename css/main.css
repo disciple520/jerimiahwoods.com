@@ -177,24 +177,33 @@ body {
 
 @media(max-width:400px){
   
-  #pic {
-    height: 125px;
-    width: 125px;
+  #contact {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+  
+  #content {
+    width: 95%;
+  }
+  
+  #header {
+    padding: 5px;
+    margin-top: 5px;
   }
   
   #name {
-    font-size: 22.5px;
-    line-height: 18px;
-    margin-top: 25px;
+    font-size: 32px;
+    line-height: 23px;
+    margin-top: 20px;
   }
   
   #name span {
-    font-size: 11px
+    font-size: 16px
   }
   
-  #contact {
-    font-size: 10px;
-    margin-top: 12px;
+  #pic {
+    height: 160px;
+    width: 160px;
   }
   
 }
