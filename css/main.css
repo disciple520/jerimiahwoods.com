@@ -101,46 +101,49 @@ body {
 }
 
 #contact {
-  float: left;
-  width: 25%;
-  margin-top: 70px;
-  text-align: right;
+  margin-top: 44px;
+  text-align: center;
   overflow: hidden;
 }
 
 #content {
   width: 85%;
   margin: 0 auto;
-  max-width: 1050px;
+  max-width: 800px;
   overflow: hidden;
 }
 
 #header {
-  background-color: #FFFFCC;
+  background: #d8cb8f; /* Old browsers */
+  background: -moz-linear-gradient(top,  #d8cb8f 0%, #f9f5cf 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d8cb8f), color-stop(100%,#f9f5cf)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #d8cb8f 0%,#f9f5cf 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #d8cb8f 0%,#f9f5cf 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #d8cb8f 0%,#f9f5cf 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #d8cb8f 0%,#f9f5cf 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8cb8f', endColorstr='#f9f5cf',GradientType=0 ); /* IE6-9 */
+  
+  padding: 20px;
+  margin-top: 20px;
   overflow: hidden;
 }
 
-#pic {
-  margin: 20px;
-  width: 100%;
-  height: 100%;
-  max-width:200px;
-  max-height: 200px;
-}  
-
 #name {
   position: relative;
-  width: 50%;
-  float: left;
-  margin-top: 70px;
+  margin-top: 55px;
+  margin-bottom: 0px;
+  line-height: 30px;
   text-align: center;
-  font-size: 30px;
+  font-size: 34px;
   
 }
 
+#pic {
+  display: inline-block;
+}
+
 #profile_picture {
-  float: left;
-  width: 25%;
+  text-align: right;
 }
 
 #resume {
@@ -150,9 +153,28 @@ body {
 
 #name span {
   font-style: italic;
+  font-size:17px;
+  text-align: center;
 }
 
-
+@media(max-width:992px){
+  
+  #profile_picture {
+    text-align: center;
+  }
+  
+  #content {
+    max-width: 550px;
+  }
+  
+  #name {
+    margin-top: 35px;
+  }
+  
+  #contact {
+    margin-top: 20px;
+  }
+}
 
 
 
