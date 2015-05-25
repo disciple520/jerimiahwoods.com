@@ -94,11 +94,63 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+  
 body {
-  background-color: blue;
+  background-color: #8D1919;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+#contact {
+  float: left;
+  width: 25%;
+  margin-top: 70px;
+  text-align: right;
+  overflow: hidden;
+}
+
+#content {
+  width: 85%;
+  margin: 0 auto;
+  max-width: 1050px;
+  overflow: hidden;
+}
+
+#header {
+  background-color: #FFFFCC;
+  overflow: hidden;
+}
+
+#pic {
+  margin: 20px;
+  width: 100%;
+  height: 100%;
+  max-width:200px;
+  max-height: 200px;
+}  
+
+#name {
+  position: relative;
+  width: 50%;
+  float: left;
+  margin-top: 70px;
+  text-align: center;
+  font-size: 30px;
+  
+}
+
+#profile_picture {
+  float: left;
+  width: 25%;
+}
+
+#resume {
+  background-color: #FFFFE6;
+  clear: both;
+}
+
+#name span {
+  font-style: italic;
+}
 
 
 
