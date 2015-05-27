@@ -144,6 +144,7 @@ body {
 .heading {
   padding-left: 20px;
   padding-top: 10px;
+  padding-bottom: 7px;
   font-weight: bold;
   font-size: 22px;
   text-align: center;
@@ -179,7 +180,6 @@ hr {
 #personal-profile {
   padding-left: 30px;
   padding-right: 30px;
-  padding-top: 5px;
   text-align: justify;
 }
 #pic {
@@ -195,6 +195,10 @@ hr {
   clear: both;
 }
 
+.second-row {
+  clear: left;
+}
+
 .subheading, .sub-subheading {
   font-style: italic;
   text-align: center;
@@ -204,21 +208,10 @@ hr {
   font-size: 18px;
 }
 
-.subheading > span {
-  font-size: 24px;
-}
-
 .sub-subheading {
   font-size: 12px;
 }
 
-.sub-subheading > span {
-  font-size: 12px;
-}
-
-#city {
-  font-size: 16px;
-}
 @media(min-width:992px){
   
   .details {
