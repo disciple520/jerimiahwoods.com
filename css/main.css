@@ -182,6 +182,7 @@ hr {
   padding-right: 30px;
   text-align: justify;
 }
+
 #pic {
   display: inline-block;
 }
@@ -212,15 +213,27 @@ hr {
   font-size: 12px;
 }
 
-@media(min-width:992px){
+@media(min-width:992px){ /* For full size desktop screens */
   
   .details {
     padding-top: 42px;
   }
   
+  .first-school >  ul {
+    margin-bottom: 0px;
+  }
+  
+  .first-school.details {
+    padding-bottom: 8px;
+  }
+  
   .heading {
     padding-right: 0px;
     text-align: right;
+  }
+  
+  .job.details {
+    padding-top: 14px;
   }
   
   #personal-profile {
@@ -241,6 +254,18 @@ hr {
     font-size: 14px;
   }
   
+  .subheading.employer {
+    padding: 0px 32px;
+    font-style: normal;
+    font-size: 16px;
+  }
+ 
+  .sub-subheading.city {
+    padding: 0px 47px;
+    font-style: normal;
+    font-size: 14px;
+  }
+ 
   #technologies > .details {
     padding-top: 15px;
   }
