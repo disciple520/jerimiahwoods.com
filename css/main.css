@@ -153,6 +153,7 @@ body {
 hr {
  margin: 0; 
 }
+
 .info {
   padding-left: 5px;
   padding-right: 5px;
@@ -203,14 +204,25 @@ hr {
   font-size: 18px;
 }
 
+.subheading > span {
+  font-size: 24px;
+}
+
 .sub-subheading {
   font-size: 12px;
 }
 
+.sub-subheading > span {
+  font-size: 12px;
+}
+
+#city {
+  font-size: 16px;
+}
 @media(min-width:992px){
   
   .details {
-    padding-top: 35px;
+    padding-top: 42px;
   }
   
   .heading {
