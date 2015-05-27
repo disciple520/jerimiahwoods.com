@@ -126,7 +126,18 @@ body {
   list-style-type: circle;
 }
 
-#header {
+footer {
+  height: 25px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+footer > p {
+  padding: 2px 10px;
+  text-align: center;
+}
+
+#header, footer{
   background: #d8cb8f; /* Old browsers */
   background: -moz-linear-gradient(top,  #d8cb8f 0%, #f9f5cf 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d8cb8f), color-stop(100%,#f9f5cf)); /* Chrome,Safari4+ */
@@ -135,7 +146,9 @@ body {
   background: -ms-linear-gradient(top,  #d8cb8f 0%,#f9f5cf 100%); /* IE10+ */
   background: linear-gradient(to bottom,  #d8cb8f 0%,#f9f5cf 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8cb8f', endColorstr='#f9f5cf',GradientType=0 ); /* IE6-9 */
-  
+}
+
+#header {
   padding: 20px;
   margin-top: 10px;
   overflow: hidden;
