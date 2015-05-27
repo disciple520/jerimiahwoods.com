@@ -329,7 +329,8 @@ hr {
   
   #header {
     margin-top: 4px; 
-}
+  }
+
 @media(max-width:350px){
   
   #contact {
