@@ -118,6 +118,8 @@ body {
   font-size: 14px;
 }
 
+
+
 .details li {
   clear: left;
 }  
@@ -241,10 +243,6 @@ hr {
 
 @media(min-width:992px){ /* For full size desktop screens */
   
-  .details {
-    padding-top: 42px;
-  }
-  
   .first-school >  ul {
     margin-bottom: 0px;
   }
@@ -266,6 +264,11 @@ hr {
     padding-top: 12px;
     padding-bottom: 5px;
     padding-right: 40px;
+  }
+  
+  #projects {
+    padding-top: 15px;
+    padding-bottom: 5px;
   }
   
   .subheading {
@@ -292,6 +295,7 @@ hr {
  
   #technologies > .details {
     padding-top: 15px;
+    padding-bottom: 8px;
   }
   
   #uwec {
