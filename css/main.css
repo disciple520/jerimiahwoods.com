@@ -114,7 +114,7 @@ body {
 }
 
 .details {
-  padding: 10px 15px;
+  padding: 10px 15px 20px 5px;
   font-size: 14px;
 }
 
@@ -202,7 +202,7 @@ hr {
 
 .subheading, .sub-subheading {
   font-style: italic;
-  text-align: center;
+  text-align: left;
 }
 
 .subheading {
@@ -211,6 +211,19 @@ hr {
 
 .sub-subheading {
   font-size: 12px;
+}
+
+.subheading.employer, .sub-subheading.city  {
+  padding-left: 30px;
+  font-style: normal;
+}
+
+.subheading.employer {
+  font-size: 16px;
+}
+
+.subheading.city {
+  font-size: 14px;
 }
 
 @media(min-width:992px){ /* For full size desktop screens */
@@ -256,13 +269,11 @@ hr {
   
   .subheading.employer {
     padding: 0px 32px;
-    font-style: normal;
     font-size: 16px;
   }
  
   .sub-subheading.city {
     padding: 0px 47px;
-    font-style: normal;
     font-size: 14px;
   }
  
