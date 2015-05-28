@@ -114,11 +114,9 @@ body {
 }
 
 .details {
-  padding: 10px 15px 20px 5px;
+  padding: 10px 15px 5px 5px;
   font-size: 14px;
 }
-
-
 
 .details li {
   clear: left;
@@ -167,7 +165,7 @@ footer > p {
 }
 
 hr {
- margin: 0; 
+ margin: 0;
 }
 
 .info {
