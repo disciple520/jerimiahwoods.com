@@ -95,6 +95,10 @@ textarea {
    Author's custom styles
    ========================================================================== */
   
+a {
+  color: #4682B4;
+}
+  
 body {
   background-color: #8D1919;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -124,6 +128,14 @@ body {
 
 .details ul {
   list-style-type: circle;
+}
+
+.feedback-description {
+  padding-left: 30px;
+}
+
+#feedback-link {
+  color: #F4A460;
 }
 
 footer {
@@ -231,13 +243,14 @@ hr {
   font-style: normal;
 }
 
-.subheading.employer {
+.subheading.employer .subheading.feedback-subheading {
   font-size: 16px;
 }
 
 .subheading.city {
   font-size: 14px;
 }
+
 
 @media(min-width:992px){ /* For full size desktop screens */
   
