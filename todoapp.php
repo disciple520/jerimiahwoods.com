@@ -12,6 +12,40 @@ and open the template in the editor.
     <body>
         <?php
             echo '<p>Hello World</p>';
+            
+            //$servername = "localhost";
+            //$username = "jerry";
+            //$password = "love";
+            //$dbname = "ToDoDB";
+            
+            
+            $servername = "server136.web-hosting.com";
+            $username = "jerixigx_jerr";
+            $password = "loveSQL!";
+            $dbName = "jerixigx_ToDoD";
+            
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            } 
+            
+            $sql = "SELECT id, task, status FROM Tasks";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo "id: " . $row["id"]. " - Task: " . $row["task"]. " - Status: " . $row["status"]. "<br>";
+                }
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+
+            
         ?>
     </body>
 </html>
