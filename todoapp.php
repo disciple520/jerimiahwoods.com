@@ -10,14 +10,31 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+        <form>
+            Add a Task<br>
+            <input type="text" name="newTask" size="50">
+        </form>
+        <button type="submit" value="addTask" onclick="addTask()">Add</button><br><br>
+        <div id="taskList">
+        
+        <script>
+        function addTask() {
+            var para = document.createElement("p");
+            var node = document.createTextNode("Hello again, World!");
+            para.appendChild(node);
+
+            var element = document.getElementById("taskList");
+            element.appendChild(para);
+        }
+        </script>
+        
+        
         <?php
-            echo '<p>Hello World</p>';
-            
             $servername = "localhost";
             $username = "jerixigx_user";
             $password = "myPW!";
             $dbname = "jerixigx_ToDoDB";
-            //$dbname = "ToDoDB";
+            $dbname = "ToDoDB";
             
 
             // Create connection
@@ -42,5 +59,6 @@ and open the template in the editor.
 
             
         ?>
+        </div>
     </body>
 </html>
