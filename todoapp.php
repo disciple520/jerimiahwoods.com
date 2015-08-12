@@ -13,16 +13,11 @@ and open the template in the editor.
         <?php
             echo '<p>Hello World</p>';
             
-            //$servername = "localhost";
-            //$username = "jerry";
-            //$password = "love";
+            $servername = "localhost";
+            $username = "jerixigx_user";
+            $password = "myPW!";
+            $dbname = "jerixigx_ToDoDB";
             //$dbname = "ToDoDB";
-            
-            
-            $servername = "server136.web-hosting.com";
-            $username = "jerixigx_jerr";
-            $password = "loveSQL!";
-            $dbName = "jerixigx_ToDoD";
             
 
             // Create connection
