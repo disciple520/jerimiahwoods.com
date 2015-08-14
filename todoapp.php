@@ -18,18 +18,6 @@ and open the template in the editor.
         
         <div id="taskList">
         
-        <script>
-        function addTask() {
-            var para = document.createElement("p");
-            var node = document.createTextNode("Hello again, World!");
-            para.appendChild(node);
-
-            var element = document.getElementById("taskList");
-            element.appendChild(para);
-        }
-        </script>
-        
-        
         <?php
             $servername = "localhost";
             $username = "jerixigx_user";
@@ -38,26 +26,20 @@ and open the template in the editor.
             $dbname = "ToDoDB";
             
 
-            // Create connection
+            // Create connection - Move this to DBConnect
             $conn = new mysqli($servername, $username, $password, $dbname);
-            // Check connection
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } 
-            print ("Hello<br><br>");
             
             if (isset($_POST['addTask'])) {
-                print ("You got here by clicking Add<br><br>");
                 $insertStatement = "INSERT INTO Tasks (task, status)
                 VALUES ('$_POST[newTask]', 0)";
                 
-                if ($conn->query($insertStatement) === TRUE) {
-                    echo "New record created successfully<br>";
-                } else {
+                if ($conn->query($insertStatement) !== TRUE) {
                     echo "Error: " . $insertStatement . "<br>" . $conn->error;
                 }
 
-                header('Location: todoapp.php');
             }
             
             $sql = "SELECT id, task, status FROM Tasks";
@@ -72,8 +54,6 @@ and open the template in the editor.
                 echo "0 results";
             }
             $conn->close();
-
-            
         ?>
         </div>
     </body>
