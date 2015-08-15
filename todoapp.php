@@ -34,8 +34,8 @@ and open the template in the editor.
             }
             
             try {
-                $sql = "SELECT id, task, status FROM Tasks";
-                $allTasks = $pdo->query($sql);
+                $sql = "SELECT id, task, status FROM Tasks WHERE status=0";
+                $toDoTasks = $pdo->query($sql);
             } catch(PDOException $ex) {
                 $error = "Unable to retrieve tasks";
     
@@ -43,12 +43,29 @@ and open the template in the editor.
                 exit();
             }
             
-            while ($task = $allTasks->fetch()) {
+            while ($task = $toDoTasks->fetch()) {
                 echo "<tr><td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=complete\">Complete</td>";
                 echo "<td>" . $task['task'] . "</td>";
                 echo "<td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=delete\">Delete</td></tr>";
             }
             echo "</table>";
+        ?>
+            <br><br><br><br><br><br>
+            <p><strong>Completed Tasks</strong></p>
+        <?php
+            try {
+                $sql = "SELECT id, task, status FROM Tasks WHERE status=1";
+                $completedTasks = $pdo->query($sql);
+            } catch(PDOException $ex) {
+                $error = "Unable to retrieve tasks";
+    
+                include 'error.html.php';
+                exit();
+            }
+            
+            while ($task = $completedTasks->fetch()) {
+                echo $task['task'] . "<br>";
+            }        
         ?>
     </body>
 </html>
