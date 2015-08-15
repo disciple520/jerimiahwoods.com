@@ -22,6 +22,7 @@ and open the template in the editor.
                 </td>
                 </form>
             </tr>
+            <tr><td><br></td></tr>
         
         <?php
             require 'dbConnect.php';
@@ -46,7 +47,7 @@ and open the template in the editor.
                 
                 echo "<tr><td>Complete</td>";
                 echo "<td>" . $task['task'] . "</td>";
-                echo "<td><a href=\"deleteTask.php\">Delete</td></tr>";
+                echo "<td><a href=\"deleteTask.php?taskID=" . $task['id'] . "\">Delete</td></tr>";
             }
             echo "</table>";
         ?>
