@@ -4,7 +4,6 @@ $servername = "localhost";
 $username = "jerixigx_user";
 $password = "myPW!";
 $dbname = "jerixigx_ToDoDB";
-$dbname = "ToDoDB";
 
 try {
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", "$username", "$password");
