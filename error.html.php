@@ -11,5 +11,4 @@
             ?>
         </p>
         <p>If this problem persists, please don't hesitate to contact support</p>
-        </p>
 </html>
