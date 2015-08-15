@@ -10,13 +10,18 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-            Add a Task<br>
-            <input type="text" name="newTaskField" size="50">
-            <button type="submit" name="addTaskButton">Add</button><br><br>
-        </form>
-        
-        <div id="taskList">
+        <table>
+            <tr>
+                <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+                <td>Add a Task</td>
+                <td>
+                    <input type="text" name="newTaskField" size="50">
+                </td>
+                <td>
+                    <button type="submit" name="addTaskButton">Add</button>
+                </td>
+                </form>
+            </tr>
         
         <?php
             require 'dbConnect.php';
@@ -36,15 +41,14 @@ and open the template in the editor.
                 include 'error.html.php';
                 exit();
             }
-            echo "<table>";
+            
             while ($task = $allTasks->fetch()) {
                 
                 echo "<tr><td>Complete</td>";
                 echo "<td>" . $task['task'] . "</td>";
-                echo "<td>Delete</td></tr>";
+                echo "<td><a href=\"deleteTask.php\">Delete</td></tr>";
             }
             echo "</table>";
         ?>
-        </div>
     </body>
 </html>
