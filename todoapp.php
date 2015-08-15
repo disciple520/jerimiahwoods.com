@@ -23,7 +23,7 @@ and open the template in the editor.
             
             if (isset($_POST['addTaskButton'])) {
                 $insertStatement = $pdo->prepare("INSERT INTO Tasks (task) VALUES (:newTask)");
-                $insertStatement->bindParam(':newTask', $_POST['newTaskField']);
+                $insertStatement->bindParam(':newTask', $_POST['newTaskField'], PDO::PARAM_STR, 60);
                 $insertStatement->execute();
             }
             
