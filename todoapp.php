@@ -36,10 +36,14 @@ and open the template in the editor.
                 include 'error.html.php';
                 exit();
             }
-
-            while ($row = $allTasks->fetch()) {
-                echo $row["task"] . ": " . $row["status"]. "<br>";
+            echo "<table>";
+            while ($task = $allTasks->fetch()) {
+                
+                echo "<tr><td>Complete</td>";
+                echo "<td>" . $task['task'] . "</td>";
+                echo "<td>Delete</td></tr>";
             }
+            echo "</table>";
         ?>
         </div>
     </body>
