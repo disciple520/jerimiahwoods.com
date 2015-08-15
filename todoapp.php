@@ -13,26 +13,15 @@ and open the template in the editor.
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
             Add a Task<br>
             <input type="text" name="newTask" size="50">
-            <button type="submit" name="addTask">Add</button><br><br>
+            <button type="submit" name="addTaskButton">Add</button><br><br>
         </form>
         
         <div id="taskList">
         
         <?php
-            $servername = "localhost";
-            $username = "jerixigx_user";
-            $password = "myPW!";
-            $dbname = "jerixigx_ToDoDB";
-            $dbname = "ToDoDB";
+            require 'dbConnect.php';
             
-
-            // Create connection - Move this to DBConnect
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
-            
-            if (isset($_POST['addTask'])) {
+            if (isset($_POST['addTaskButton'])) {
                 $insertStatement = "INSERT INTO Tasks (task, status)
                 VALUES ('$_POST[newTask]', 0)";
                 
@@ -43,17 +32,11 @@ and open the template in the editor.
             }
             
             $sql = "SELECT id, task, status FROM Tasks";
-            $result = $conn->query($sql);
+            $allTasks = $pdo->query($sql);
 
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo "id: " . $row["id"]. " - Task: " . $row["task"]. " - Status: " . $row["status"]. "<br>";
-                }
-            } else {
-                echo "0 results";
+            while ($row = $allTasks->fetch()) {
+                echo $row["task"] . ": " . $row["status"]. "<br>";
             }
-            $conn->close();
         ?>
         </div>
     </body>

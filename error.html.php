@@ -6,9 +6,10 @@
     </head>
     <body>
         <p style="color:red;font-weight:800;">
-        <?php
-        echo $error;
-        echo $ex->getMessage();
-        ?>
+            <?php
+            echo $error . "---" . $ex->getMessage();
+            ?>
+        </p>
+        <p>If this problem persists, please don't hesitate to contact support</p>
         </p>
 </html>
