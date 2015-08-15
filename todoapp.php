@@ -44,10 +44,9 @@ and open the template in the editor.
             }
             
             while ($task = $allTasks->fetch()) {
-                
-                echo "<tr><td>Complete</td>";
+                echo "<tr><td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=complete\">Complete</td>";
                 echo "<td>" . $task['task'] . "</td>";
-                echo "<td><a href=\"deleteTask.php?taskID=" . $task['id'] . "\">Delete</td></tr>";
+                echo "<td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=delete\">Delete</td></tr>";
             }
             echo "</table>";
         ?>
