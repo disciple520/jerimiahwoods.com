@@ -12,5 +12,5 @@ try {
     include 'error.html.php';
     exit();
 }
-header("Location: home.php");
+header("Location: todoapp.php");
 ?>
