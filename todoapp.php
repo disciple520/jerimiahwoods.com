@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
             Add a Task<br>
-            <input type="text" name="newTask" size="50">
+            <input type="text" name="newTaskField" size="50">
             <button type="submit" name="addTaskButton">Add</button><br><br>
         </form>
         
@@ -22,17 +22,20 @@ and open the template in the editor.
             require 'dbConnect.php';
             
             if (isset($_POST['addTaskButton'])) {
-                $insertStatement = "INSERT INTO Tasks (task, status)
-                VALUES ('$_POST[newTask]', 0)";
-                
-                if ($conn->query($insertStatement) !== TRUE) {
-                    echo "Error: " . $insertStatement . "<br>" . $conn->error;
-                }
-
+                $insertStatement = $pdo->prepare("INSERT INTO Tasks (task) VALUES (:newTask)");
+                $insertStatement->bindParam(':newTask', $_POST['newTaskField']);
+                $insertStatement->execute();
             }
             
-            $sql = "SELECT id, task, status FROM Tasks";
-            $allTasks = $pdo->query($sql);
+            try {
+                $sql = "SELECT id, task, status FROM Tasks";
+                $allTasks = $pdo->query($sql);
+            } catch(PDOException $ex) {
+                $error = "Unable to retrieve tasks";
+    
+                include 'error.html.php';
+                exit();
+            }
 
             while ($row = $allTasks->fetch()) {
                 echo $row["task"] . ": " . $row["status"]. "<br>";
