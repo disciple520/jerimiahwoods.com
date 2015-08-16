@@ -25,7 +25,7 @@
         <div id="content">
             <div id="header" class="center">
                 <form id="add_task_form" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-                    <input type="text" name="newTaskField" size="35" autofocus="true" autocomplete="false">
+                    <input type="text" name="newTaskField" size="30" maxlength="60" autofocus="true" autocomplete="false">
                     <button id="add_button" type="submit" name="addTaskButton">Add Task</button>
                 </form>
             </div> <!-- end of header div -->
@@ -35,7 +35,7 @@
               <div class="col-md-2 heading">
                 To Do
               </div> <!-- end of heading div -->
-              <div class="col-md-8">
+              <div class="col-md-8" id="task_div">
                   <table id="task_table">
                     </tr>
                         <?php
@@ -58,9 +58,9 @@
                             }
 
                             while ($task = $toDoTasks->fetch()) {
-                                echo "<tr><td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=complete\">Done</td>";
+                                echo "<tr><td id='checkmark_cell'><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=complete\"><img src='img/green_checkmark.png' width='16' height='16' border='0'></a></td>";
                                 echo "<td>" . $task['task'] . "</td>";
-                                echo "<td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=delete\">Delete</td></tr>";
+                                echo "<td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=delete\"><img src='img/red_x.png' width='16' height='16' border='0'></a></td></tr>";
                             }
                         ?>
                   </table>
@@ -68,6 +68,7 @@
               <div class="col-md-2 heading">
               </div> <!-- end of heading div -->
             </div> <!-- end of row div -->
+            <hr>
             <div class="row">
               <div class="col-md-2 heading">
                 Completed Tasks
