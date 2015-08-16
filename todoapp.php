@@ -15,7 +15,7 @@ and open the template in the editor.
                 <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
                 <td>Add a Task</td>
                 <td>
-                    <input type="text" name="newTaskField" size="50">
+                    <input type="text" name="newTaskField" size="50" autofocus="true" autocomplete="false">
                 </td>
                 <td>
                     <button type="submit" name="addTaskButton">Add</button>
