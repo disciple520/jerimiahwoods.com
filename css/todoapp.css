@@ -1,0 +1,19 @@
+#add_button {
+    margin: 10px;
+    vertical-align:middle;
+    padding-top: 6px;
+}
+
+.center {
+    text-align: center;
+}
+
+#task_table {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.col-md-8 {
+    margin: auto;
+}
+

@@ -1,71 +1,122 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<!doctype html>
+<html class="no-js" lang="">
     <head>
-        <meta charset="UTF-8">
-        <title></title>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Jerimiah Woods</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/todoapp.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <table>
-            <tr>
-                <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-                <td>Add a Task</td>
-                <td>
-                    <input type="text" name="newTaskField" size="50" autofocus="true" autocomplete="false">
-                </td>
-                <td>
-                    <button type="submit" name="addTaskButton">Add</button>
-                </td>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div id="content">
+            <div id="header" class="center">
+                <form id="add_task_form" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+                    <input type="text" name="newTaskField" size="35" autofocus="true" autocomplete="false">
+                    <button id="add_button" type="submit" name="addTaskButton">Add Task</button>
                 </form>
-            </tr>
-            <tr><td><br></td></tr>
+            </div> <!-- end of header div -->
+          <hr>
+          <div id="resume">
+            <div class="row">
+              <div class="col-md-2 heading">
+                To Do
+              </div> <!-- end of heading div -->
+              <div class="col-md-8">
+                  <table id="task_table">
+                    </tr>
+                        <?php
+                            require 'dbConnect.php';
+
+                            if (isset($_POST['addTaskButton'])) {
+                                $insertStatement = $pdo->prepare("INSERT INTO Tasks (task) VALUES (:newTask)");
+                                $insertStatement->bindParam(':newTask', $_POST['newTaskField'], PDO::PARAM_STR, 60);
+                                $insertStatement->execute();
+                            }
+
+                            try {
+                                $sql = "SELECT id, task, status FROM Tasks WHERE status=0";
+                                $toDoTasks = $pdo->query($sql);
+                            } catch(PDOException $ex) {
+                                $error = "Unable to retrieve tasks";
+
+                                include 'error.html.php';
+                                exit();
+                            }
+
+                            while ($task = $toDoTasks->fetch()) {
+                                echo "<tr><td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=complete\">Done</td>";
+                                echo "<td>" . $task['task'] . "</td>";
+                                echo "<td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=delete\">Delete</td></tr>";
+                            }
+                        ?>
+                  </table>
+              </div> <!-- end of feedback div -->
+              <div class="col-md-2 heading">
+              </div> <!-- end of heading div -->
+            </div> <!-- end of row div -->
+            <div class="row">
+              <div class="col-md-2 heading">
+                Completed Tasks
+              </div> <!-- end of heading div -->
+              <div class="col-md-8">
+                  <?php
+                  try {
+                      $sql = "SELECT id, task, status FROM Tasks WHERE status=1";
+                      $completedTasks = $pdo->query($sql);
+                  } catch (PDOException $ex) {
+                      $error = "Unable to retrieve tasks";
+
+                      include 'error.html.php';
+                      exit();
+                  }
+
+                  while ($task = $completedTasks->fetch()) {
+                      echo " - " . $task['task'];
+                  }
+                  ?>
+              </div> <!-- end of feedback div -->
+              <div class="col-md-2 heading">
+              </div> <!-- end of heading div -->
+            </div> <!-- end of row div -->
+          </div> <!-- end of resume div -->
+          <hr>
+          <footer>
+            <p>Site designed by Jerry Woods 2015</p>
+          </footer>
+        </div> <!-- end of content div -->
         
-        <?php
-            require 'dbConnect.php';
-            
-            if (isset($_POST['addTaskButton'])) {
-                $insertStatement = $pdo->prepare("INSERT INTO Tasks (task) VALUES (:newTask)");
-                $insertStatement->bindParam(':newTask', $_POST['newTaskField'], PDO::PARAM_STR, 60);
-                $insertStatement->execute();
-            }
-            
-            try {
-                $sql = "SELECT id, task, status FROM Tasks WHERE status=0";
-                $toDoTasks = $pdo->query($sql);
-            } catch(PDOException $ex) {
-                $error = "Unable to retrieve tasks";
-    
-                include 'error.html.php';
-                exit();
-            }
-            
-            while ($task = $toDoTasks->fetch()) {
-                echo "<tr><td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=complete\">Complete</td>";
-                echo "<td>" . $task['task'] . "</td>";
-                echo "<td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=delete\">Delete</td></tr>";
-            }
-            echo "</table>";
-        ?>
-            <br><br><br><br><br><br>
-            <p><strong>Completed Tasks</strong></p>
-        <?php
-            try {
-                $sql = "SELECT id, task, status FROM Tasks WHERE status=1";
-                $completedTasks = $pdo->query($sql);
-            } catch(PDOException $ex) {
-                $error = "Unable to retrieve tasks";
-    
-                include 'error.html.php';
-                exit();
-            }
-            
-            while ($task = $completedTasks->fetch()) {
-                echo $task['task'] . "<br>";
-            }        
-        ?>
+        
+          
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/bootstrap.js"></script>
+
+        <!-- Google Analytics: -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-63553555-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
     </body>
 </html>
