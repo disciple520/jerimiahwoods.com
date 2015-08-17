@@ -252,7 +252,7 @@ hr {
 }
 
 
-@media(min-width:992px){ /* For full size desktop screens */
+@media(min-width:960px){ /* For full size desktop screens */
   
   .first-school >  ul {
     margin-bottom: 0px;
