@@ -25,7 +25,7 @@
         <div id="content">
             <div id="header" class="center">
                 <form id="add_task_form" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-                    <input type="text" name="newTaskField" size="30" maxlength="60" autofocus="true" autocomplete="false">
+                    <input type="text" id= "newTaskField" name="newTaskField" size="30" maxlength="60" autofocus="true" autocomplete="false">
                     <button id="add_button" type="submit" name="addTaskButton">Add Task</button>
                 </form>
             </div> <!-- end of header div -->
