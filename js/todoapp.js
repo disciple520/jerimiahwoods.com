@@ -1,4 +1,3 @@
-
 $( "tr" ).hover(
   function() {
     $(this).addClass("hovered");
@@ -13,24 +12,24 @@ $( "tr" ).hover(
   }
 );
 
-var mq = window.matchMedia( "(min-width: 992px)" );
+var mediaQuery = window.matchMedia( "(min-width: 992px)" );
 
-if (mq.matches) {
+if (mediaQuery.matches) {
   document.getElementById("newTaskField").size = "50";
 }
 
 if (matchMedia) {
-	mq.addListener(WidthChange);
-	WidthChange(mq);
+    mediaQuery.addListener(TextFieldWidthChange);
+    TextFieldWidthChange();
 }
 
-function WidthChange(mq) {
+function TextFieldWidthChange() {
 
-	if (mq.matches) {
-            document.getElementById("newTaskField").size = "50";
-	}
-	else {
-            document.getElementById("newTaskField").size = "30";
-	}
+    if (mediaQuery.matches) {
+        document.getElementById("newTaskField").size = "50";
+    }
+    else {
+        document.getElementById("newTaskField").size = "30";
+    }
 
 }

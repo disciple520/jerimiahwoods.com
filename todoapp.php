@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Jerimiah Woods</title>
+        <title>To Do App</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,7 +21,6 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
         <div id="content">
             <div id="header" class="center">
                 <form id="add_task_form" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
@@ -43,7 +42,7 @@
 
                             if (isset($_POST['addTaskButton'])) {
                                 $insertStatement = $pdo->prepare("INSERT INTO Tasks (task) VALUES (:newTask)");
-                                $insertStatement->bindParam(':newTask', $_POST['newTaskField'], PDO::PARAM_STR, 60);
+                                $insertStatement->bindParam(':newTask', strip_tags($_POST['newTaskField']), PDO::PARAM_STR, 60);
                                 $insertStatement->execute();
                             }
 
