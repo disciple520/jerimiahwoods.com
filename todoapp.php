@@ -30,7 +30,7 @@
                 </form>
             </div> <!-- end of header div -->
           <hr>
-          <div id="resume">
+          <div id="page_content">
             <div class="row">
               <div class="col-md-2 heading">
                 To Do
@@ -73,7 +73,7 @@
               <div class="col-md-2 heading">
                 Completed Tasks
               </div> <!-- end of heading div -->
-              <div class="col-md-8">
+              <div class="col-md-8" id="completed_tasks">
                   <?php
                   try {
                       $sql = "SELECT id, task, status FROM Tasks WHERE status=1";
@@ -107,6 +107,7 @@
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script src="js/bootstrap.js"></script>
+        <script src="js/todoapp.js"></script>
 
         <!-- Google Analytics: -->
         <script>

@@ -1,5 +1,5 @@
 #add_button {
-    margin: 10px;
+    margin: 5px;
     vertical-align:middle;
     padding-top: 6px;
 }
@@ -10,16 +10,37 @@
 
 #checkmark_cell {
     padding-right: 10px;
-}
-
-#task_table {
-    width: 95%;
-    margin: 0 auto;
+    padding-left: 5px;
 }
 
 .col-md-8 {
     margin: auto;
 }
 
+#completed_tasks {
+    margin: 5px 10px;
+    text-align: justify;
+}
+
+#task_table {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#header {
+    margin-top: 0px;
+    padding-bottom: 0px;
+}
+
+.heading {
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+.hovered {
+    background: #d8cb8f;
+}
+
 #task_div {
+    padding: 5px 5px;
 }
