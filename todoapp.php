@@ -3,18 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>To Do App</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/todoapp.css">
+        
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        
+        <title>To Do App</title>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -24,31 +25,31 @@
         <div id="content">
             <div id="header" class="center">
                 <form id="add_task_form" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-                    <input type="text" id= "newTaskField" name="newTaskField" size="30" maxlength="60" autofocus="true" autocomplete="false">
-                    <button id="add_button" type="submit" name="addTaskButton">Add Task</button>
+                    <input type="text" id="new-task-field" name="new-task-field" size="30" maxlength="60" autofocus="true" autocomplete="false">
+                    <button id="add-button" type="submit" name="add-task-button">Add Task</button>
                 </form>
             </div> <!-- end of header div -->
           <hr>
-          <div id="page_content">
+          <div id="page-content">
             <div class="row">
               <div class="col-md-2 heading">
                 To Do
               </div> <!-- end of heading div -->
-              <div class="col-md-8" id="task_div">
-                  <table id="task_table">
+              <div class="col-md-8" id="task-div">
+                  <table id="task-table">
                     </tr>
                         <?php
                             require 'dbConnect.php';
 
-                            if (isset($_POST['addTaskButton'])) {
+                            if (isset($_POST['add-task-button'])) {
                                 $insertStatement = $pdo->prepare("INSERT INTO Tasks (task) VALUES (:newTask)");
-                                $insertStatement->bindParam(':newTask', strip_tags($_POST['newTaskField']), PDO::PARAM_STR, 60);
+                                $insertStatement->bindParam(':newTask', strip_tags($_POST['new-task-field']), PDO::PARAM_STR, 60);
                                 $insertStatement->execute();
                             }
 
                             try {
-                                $sql = "SELECT id, task, status FROM Tasks WHERE status=0";
-                                $toDoTasks = $pdo->query($sql);
+                                $selectStatement = "SELECT id, task, status FROM Tasks WHERE status = 0";
+                                $toDoTasks = $pdo->query($selectStatement);
                             } catch(PDOException $ex) {
                                 $error = "Unable to retrieve tasks";
 
@@ -57,7 +58,7 @@
                             }
 
                             while ($task = $toDoTasks->fetch()) {
-                                echo "<tr><td id='checkmark_cell'><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=complete\"><img src='img/green_checkmark.png' width='16' height='16' border='0'></a></td>";
+                                echo "<tr><td id='checkmark-cell'><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=complete\"><img src='img/green_checkmark.png' width='16' height='16' border='0'></a></td>";
                                 echo "<td>" . $task['task'] . "</td>";
                                 echo "<td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=delete\"><img src='img/red_x.png' width='16' height='16' border='0'></a></td></tr>";
                             }
@@ -72,11 +73,11 @@
               <div class="col-md-2 heading">
                 Completed Tasks
               </div> <!-- end of heading div -->
-              <div class="col-md-8" id="completed_tasks">
+              <div class="col-md-8" id="completed-tasks">
                   <?php
                   try {
-                      $sql = "SELECT id, task, status FROM Tasks WHERE status=1";
-                      $completedTasks = $pdo->query($sql);
+                      $selectStatement = "SELECT id, task, status FROM Tasks WHERE status = 1";
+                      $completedTasks = $pdo->query($selectStatement);
                   } catch (PDOException $ex) {
                       $error = "Unable to retrieve tasks";
 
@@ -89,10 +90,10 @@
                   }
                   ?>
               </div> <!-- end of feedback div -->
-              <div class="col-md-2 heading">
+              <div class="col-md-2">
               </div> <!-- end of heading div -->
             </div> <!-- end of row div -->
-          </div> <!-- end of page_content div -->
+          </div> <!-- end of page-content div -->
           <hr>
           <footer>
             <p>Site designed by Jerry Woods 2015</p>
