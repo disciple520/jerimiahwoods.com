@@ -92,7 +92,7 @@
               <div class="col-md-2 heading">
               </div> <!-- end of heading div -->
             </div> <!-- end of row div -->
-          </div> <!-- end of resume div -->
+          </div> <!-- end of page_content div -->
           <hr>
           <footer>
             <p>Site designed by Jerry Woods 2015</p>
