@@ -42,8 +42,10 @@
                 require 'dbConnect.php';
 
                 if (isset($_POST['add-task-button'])) {
+                    $newTask = strip_tags($_POST['new-task-field']);
+                    
                     $insertStatement = $pdo->prepare("INSERT INTO Tasks (task) VALUES (:newTask)");
-                    $insertStatement->bindParam(':newTask', strip_tags($_POST['new-task-field']), PDO::PARAM_STR, 60);
+                    $insertStatement->bindParam(':newTask', $newTask, PDO::PARAM_STR, 60);
                     $insertStatement->execute();
                 }
 
