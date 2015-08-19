@@ -15,7 +15,7 @@ $( "tr" ).hover(
 var mediaQuery = window.matchMedia( "(min-width: 992px)" );
 
 if (mediaQuery.matches) {
-  document.getElementById("newTaskField").size = "50";
+  document.getElementById("new-task-field").size = "50";
 }
 
 if (matchMedia) {
@@ -26,10 +26,10 @@ if (matchMedia) {
 function TextFieldWidthChange() {
 
     if (mediaQuery.matches) {
-        document.getElementById("newTaskField").size = "50";
+        document.getElementById("new-task-field").size = "50";
     }
     else {
-        document.getElementById("newTaskField").size = "30";
+        document.getElementById("new-task-field").size = "30";
     }
 
 }
