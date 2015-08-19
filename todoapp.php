@@ -58,9 +58,23 @@
                             }
 
                             while ($task = $toDoTasks->fetch()) {
-                                echo "<tr><td id='checkmark-cell'><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=complete\"><img src='img/green_checkmark.png' width='16' height='16' border='0'></a></td>";
-                                echo "<td>" . $task['task'] . "</td>";
-                                echo "<td><a href=\"removeTask.php?taskID=" . $task['id'] . "&action=delete\"><img src='img/red_x.png' width='16' height='16' border='0'></a></td></tr>";
+                              ?>
+                                <tr>
+                                  <td id='checkmark-cell'>
+                                    <a href="removeTask.php?taskID=<?= $task['id'] ?>&action=complete">
+                                      <img src='img/green_checkmark.png' width='16' height='16' border='0'>
+                                    </a>
+                                  </td>
+                                  <td>
+                                    <?= $task['task'] ?>
+                                  </td>
+                                  <td>
+                                    <a href="removeTask.php?taskID=<?= $task['id']?>&action=delete">
+                                      <img src='img/red_x.png' width='16' height='16' border='0'>
+                                    </a>
+                                  </td>
+                                </tr>
+                                <?php
                             }
                         ?>
                   </table>
